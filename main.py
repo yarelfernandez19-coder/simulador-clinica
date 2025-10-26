@@ -4,17 +4,16 @@ from rich.panel import Panel
 
 from InquirerPy import inquirer
 from InquirerPy.base.control import Choice
-from InquirerPy.separator import Separator
+from InquirerPy.validator import EmptyInputValidator
 
 NOMBRE_CLINICA = "Clínica Pavas"
 
 
 def registrar_paciente():
-    nombre = inquirer.text(message="Nombre del paciente:").execute()
-
-    if not nombre.strip():
-        print("[bold red]El nombre del paciente no puede estar vació[/bold red]")
-        return
+    nombre = inquirer.text(
+        message="Nombre del paciente:",
+        validate=EmptyInputValidator(message="El nombre no puede estar vacío"),
+    ).execute()
 
     prioridad = inquirer.select(
         message="Prioridad del paciente:",
