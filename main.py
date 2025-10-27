@@ -6,6 +6,9 @@ from InquirerPy import inquirer
 from InquirerPy.base.control import Choice
 from InquirerPy.validator import EmptyInputValidator
 
+PACIENTES_ESPERA = []
+PACIENTES_ATENDIDOS = []
+
 NOMBRE_CLINICA = "Clínica Pavas"
 
 
@@ -23,8 +26,12 @@ def registrar_paciente():
         ],
     ).execute()
 
-    # Implementación pendiente
-    pass
+    paciente = {
+        "nombre": nombre,
+        "prioridad": prioridad
+    }
+    
+    PACIENTES_ESPERA.append(paciente)
 
 
 def atender_siguiente_paciente():
