@@ -30,22 +30,26 @@ def registrar_paciente():
         "nombre": nombre,
         "prioridad": prioridad
     }
-    
+    globals()["paciente"] = paciente
     PACIENTES_ESPERA.append(paciente)
 
 
 def atender_siguiente_paciente():
-    # Implementación pendiente
+    for p in range (10):
+        prueba = paciente.get("nombre")
+        print (prueba)
+        p += 1
     pass
 
 
 def ver_estado_cola():
-    # Implementación pendiente
+    print (paciente)
     pass
 
 
 def ver_pacientes_atendidos():
-    # Implementación pendiente
+    if PACIENTES_ATENDIDOS == []:
+        print("No hay pacientes atendidos por el momento")
     pass
 
 
