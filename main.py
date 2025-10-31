@@ -40,16 +40,10 @@ def atender_siguiente_paciente():
         return
     for p in enumerate(PACIENTES_ESPERA):
         p = paciente.get('prioridad') == 'u'
-    nombre = paciente.get('nombre')
-    print(f"Atendiendo a {nombre}")
+        nombre = paciente.get('nombre')
     PACIENTES_ATENDIDOS.append(nombre)
-    for i, pacientes in enumerate(PACIENTES_ESPERA):
-        if PACIENTES_ESPERA.get("nombre") == nombre:
-            del PACIENTES_ESPERA[i]
-            break
-    """ for i, e in enumerate(PACIENTES_ESPERA):
-        if paciente.get("nombre") == nombre:
-            paciente.remove(i) """
+    print(f"Atendiendo a {nombre}")
+    PACIENTES_ESPERA.pop(-1)
     pass
 
 
